@@ -2,6 +2,7 @@ import gdata.photos.service
 import Image
 import collections, functools
 
+__all__ = ["PicasaStorage", ]
 
 class memoized(object):
     '''Decorator. Caches a function's return value each time it is called.
@@ -108,6 +109,8 @@ class PicasaStorage:
 
         yield self.create_album()
 
+    def remove_photo(self, photo):
+        self._.Delete(photo)
 
     def insert_photo(self, filename, title = None , summary = "photo storage", content_type='image/jpeg'):
         try:
